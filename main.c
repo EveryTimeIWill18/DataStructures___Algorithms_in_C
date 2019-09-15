@@ -11,6 +11,18 @@ int main() {
     array_list1 = insertion_sort((2, 6, 5, 3, 8, 7, 1, 0));
     array_list2 = bubble_sort((2, 6, 5, 3, 8, 7,1, 0));
 
+    double a[11] = {1, 2, 7, 4, 6, 5, 9, 8, 3, 10, NAN};
+
+    printf("array length is: %d\n", get_array_length(a));
+
+    double *aa = m_sort(a);
+//    printf("a[0] := %g\n", *(aa + 0));
+//    printf("a[1] := %g\n", *(aa + 1));
+//    printf("a[2] := %g\n", *(aa + 2));
+//    printf("a[3] := %g\n", *(aa + 3));
+//    printf("a[4] := %g\n", *(aa + 4));
+    //printf("a[5] := %g\n", *(aa + 5));
+
     // insertion sort
     printf("INSERTION SORT\n------------------\n");
     printf("array_list1[0] = %g\n", *(array_list1 + 0));

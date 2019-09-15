@@ -6,6 +6,7 @@
 #define DATASTRUCTURES_ALGORITHMS_IN_C_SORTS_H
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <math.h>
 
 typedef int (*int_func_ptr)(double *);
@@ -29,6 +30,72 @@ int get_array_length(double inn[]) {
 #define bubble_sort(arr_list1) b_sort(array_list arr_list1)
 
 #define merge_sort(arr_list1) m_sort(array_list arr_list1)
+
+double * m_sort(double *A) {
+    if (get_array_length(A) > 1) {
+        int midpoint = get_array_length(A) / 2;
+        double* left = (double*)malloc(midpoint* sizeof(double));
+        double* right = (double*)malloc((get_array_length(A) - midpoint)* sizeof(double));
+
+        printf("array length is: %d\n", get_array_length(left));
+        int i = 0;
+        int j = midpoint;
+        int k = 0;
+
+        // insert data into left array
+        while (i < midpoint) {
+            *(left + i) = *(A +i);
+            i++;
+        }
+
+        // insert data into right array
+        while (j < get_array_length(A)) {
+            *(right + k) = *(A + j);
+            j++;
+            k++;
+        }
+
+        for (int n=0; n < get_array_length(left); n++) {
+            printf("left[%d] = %g\n", n, *(left+n));
+        }
+
+        // recursive calls
+        // m_sort(left);
+        // m_sort(right);
+
+//        int m = 0;
+//        int n = 0;
+//        int l = 0;
+//
+//        while (m < get_array_length(left) && n < get_array_length(right)) {
+//            if (*(left + m) < *(right + n)) {
+//                *(A + l) = *(left + m);
+//                m++;
+//            } else {
+//                *(A + l) = *(right + l);
+//                n++;
+//            }
+//            l++;
+//        }
+//
+//        while (m < get_array_length(left)) {
+//            *(A + l) = *(left + m);
+//            m++;
+//            l++;
+//        }
+//
+//        while (n < get_array_length(right)) {
+//            *(A + l) = *(right + n);
+//            n++;
+//        }
+
+
+        return right;
+    }
+}
+
+
+
 
 double * b_sort(double *A) {
 
