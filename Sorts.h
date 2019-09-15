@@ -28,6 +28,7 @@ int get_array_length(double inn[]) {
 
 #define bubble_sort(arr_list1) b_sort(array_list arr_list1)
 
+#define merge_sort(arr_list1) m_sort(array_list arr_list1)
 
 double * b_sort(double *A) {
 
