@@ -26,13 +26,36 @@ int get_array_length(double inn[]) {
 
 #define insertion_sort(arr_list1) in_sort(array_list arr_list1)
 
-void in_sort(double *A) {
+#define bubble_sort(arr_list1) b_sort(array_list arr_list1)
+
+
+double * b_sort(double *A) {
+
+    double temp;
+    int_func_ptr s = get_array_length;
+
+    for (int i=0; i < s(A); i++) {
+        for (int j=0; j < s(A)-1; j++) {
+            if (*(A + j) > *(A + (j+1))) {
+                temp = *(A + (j+1));
+                *(A + (j+1)) = *(A + j);
+                *(A + j) = temp;
+            }
+        }
+    }
+
+    return A;
+}
+
+
+
+double * in_sort(double *A) {
     int j;
     double temp;
 
     int_func_ptr s = get_array_length;
 
-    printf("Array size = %d\n", (int)s);
+    //printf("Array size = %d\n", (int)s);
 
     for (int i=0; i < s(A); i++) {
         j = i;
@@ -43,12 +66,26 @@ void in_sort(double *A) {
             j--;
         }
     }
-    for(int i=0; i<s(A); i++) {
-        printf("%g\t", A[i]);
-    }
-
-
+    return A;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 #endif //DATASTRUCTURES_ALGORITHMS_IN_C_SORTS_H
