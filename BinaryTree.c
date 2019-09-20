@@ -56,3 +56,59 @@ void in_order(Node* root) {
         in_order(root->right);
     }
 }
+
+Node* get_minimum(Node* node) {
+
+    Node* current = node;
+    while (current && current->left != NULL) {
+        current = current->left;
+    }
+    return current;
+}
+
+
+
+Node* delete(Node* root, int data) {
+
+    if (root == NULL)
+        return root;
+
+    if (data < root->data) {
+        root->left = delete(root->left, data);
+    }
+    else if (data > root->data) {
+        root->right = delete(root->right, data);
+    } else {
+        // data == root->data
+        if (root->left == NULL) {
+            Node* temp_node = root->right;
+            free(root);
+            return temp_node;
+        }
+        else if (root->right == NULL) {
+            Node* temp_node = root->left;
+            free(root);
+            return temp_node;
+        }
+
+        Node* temp = get_minimum(root->right);
+        root->data = temp->data;
+        root->right = delete(root->right, temp->data);
+
+    }
+    return root;
+}
+
+int tree_size(Node* root) {
+
+   if (root == NULL)
+       return 0;
+   else
+       return (tree_size(root->left) + 1 + tree_size(root->right));
+
+}
+
+
+
+
+

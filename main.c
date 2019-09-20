@@ -69,10 +69,13 @@ int main() {
     insert(root, 19);
     insert(root, 31);
     insert(root, 42);
+    insert(root, 11);
 
     in_order(root);
-
-
+    root = delete(root, 11);
+    printf("\n\n");
+    in_order(root);
+    printf("Tree size: %d\n", tree_size(root));
 
     return 0;
 }

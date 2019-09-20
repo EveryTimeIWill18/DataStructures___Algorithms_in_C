@@ -24,5 +24,12 @@ Node* insert(Node* node, int data);
 // in order traversal of the tree
 void in_order(Node* root);
 
+// get minimum valued node from the tree
+Node* get_minimum(Node* node);
+
+// delete a node from the tree
+Node* delete(Node* root, int data);
+
+int tree_size(Node* root);
 
 #endif //DATASTRUCTURES_ALGORITHMS_IN_C_BINARYTREE_H
