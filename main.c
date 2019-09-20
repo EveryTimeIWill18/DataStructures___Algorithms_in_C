@@ -1,7 +1,43 @@
 #include <stdio.h>
 #include "Sorts.h"
 #include "BinaryTree.h"
+#include "SimpleLinearModel.h"
 
+// factorial recursive function
+int fun(int n) {
+    if (n == 1 || n == 0)
+        return 1;
+    else
+        return n*fun(n-1);
+}
+
+
+int fun1(int);
+int fun2(int);
+
+// using indirect recursion
+int fun1(int n) {
+    if (n == 1 || n ==0)
+        return 1;
+    else
+        return n + fun2(n-1);
+}
+
+int fun2 (int m) {
+    m = 0;
+    return fun1(m);
+
+}
+
+
+// tail recursive function
+void fun3(int n) {
+    if (n == 0)
+        return;
+    else
+        printf("%d ", n);
+    return fun3(n-1);
+}
 
 
 
@@ -77,5 +113,20 @@ int main() {
     in_order(root);
     printf("Tree size: %d\n", tree_size(root));
 
+    int n = 10;
+    printf("%d\n", fun(4));
+
+
+    // setting up a linear model
+
+    LinearModel* slm = create(10);
+    insert_data(slm, 20, 5);
+    insert_data(slm, 55, 12);
+    insert_data(slm, 30, 10);
+    printf("Linear Model: slm[0][0] = (%g, %g)\n",slm->data_array[0][0], slm->data_array[1][0]);
+    printf("Linear Model: slm[1][1] = (%g, %g)\n",slm->data_array[0][1], slm->data_array[1][1]);
+    printf("Linear Model: slm[2][2] = (%g, %g)\n",slm->data_array[0][2], slm->data_array[1][2]);
+    printf("X-mean: %g\n", mean(slm, 0));
+    printf("Y-mean: %g\n", mean(slm, 1));
     return 0;
 }
