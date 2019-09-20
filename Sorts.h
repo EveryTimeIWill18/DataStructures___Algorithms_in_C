@@ -34,10 +34,14 @@ int get_array_length(double inn[]) {
 double * m_sort(double *A) {
     if (get_array_length(A) > 1) {
         int midpoint = get_array_length(A) / 2;
-        double* left = (double*)malloc(midpoint* sizeof(double));
+        printf("midpoint is: %d\n", midpoint);
+
+        double* left = (double*)malloc(midpoint * sizeof(double));
         double* right = (double*)malloc((get_array_length(A) - midpoint)* sizeof(double));
 
-        printf("array length is: %d\n", get_array_length(left));
+        //printf("left array length is: %d\n", get_array_length(left));
+        //printf("right array length is: %d\n", get_array_length(right));
+
         int i = 0;
         int j = midpoint;
         int k = 0;
@@ -54,15 +58,15 @@ double * m_sort(double *A) {
             j++;
             k++;
         }
-
-        for (int n=0; n < get_array_length(left); n++) {
-            printf("left[%d] = %g\n", n, *(left+n));
-        }
+//
+//        for (int n=0; n < get_array_length(left); n++) {
+//            printf("left[%d] = %g\n", n, *(left+n));
+//        }
 
         // recursive calls
-        // m_sort(left);
-        // m_sort(right);
-
+//         m_sort(left);
+//         m_sort(right);
+//
 //        int m = 0;
 //        int n = 0;
 //        int l = 0;
@@ -88,13 +92,13 @@ double * m_sort(double *A) {
 //            *(A + l) = *(right + n);
 //            n++;
 //        }
+//
+//        free(left);
+//        free(right);
 
-
-        return right;
+        return A;
     }
 }
-
-
 
 
 double * b_sort(double *A) {
